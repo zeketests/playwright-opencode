@@ -32,3 +32,20 @@ playwright.config.ts
 - CI enforces `forbidOnly` (no `test.only` left in code)
 - Traces captured on first retry
 - Use POM for page interactions, keep test data in test-data/
+
+## Browser Automation (playwright-cli)
+
+A `playwright-cli` skill is installed at `.claude/skills/playwright-cli/SKILL.md`. Claude-based agents load it automatically. Other agents should read it manually before doing browser automation tasks.
+
+Use it to inspect real selectors before writing tests:
+
+```bash
+playwright-cli open https://ecommerce-playground.lambdatest.io/
+playwright-cli snapshot
+playwright-cli click e271        # interact using ref from snapshot
+playwright-cli close
+```
+
+Key references:
+- `.claude/skills/playwright-cli/references/element-attributes.md` - inspecting selectors
+- `.claude/skills/playwright-cli/references/test-generation.md` - generating tests
